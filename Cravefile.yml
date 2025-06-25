@@ -1,26 +1,20 @@
-name: realme_xt_rom
-type: android
+name: EvoX-RMX1921-GApps
+description: EvolutionX GApps Build for Realme XT (RMX1921)
 
-sources:
-  - name: manifest
-    remote: https://github.com/ProjectInfinity-X/manifest.git
-    branch: 15
+builder:
+  type: shell
+  script: ./evox_build.sh
 
-  - name: device_realme_RMX1921
-    remote: https://github.com/kaderbava/device_realme_RMX1921.git
-    branch: 15-matrixx
-    path: device/realme/RMX1921
+environment:
+  image: crave/aosp:vanilla
+  env_file: .env
 
-  - name: vendor_realme_RMX1921
-    remote: https://gitlab.com/kaderbava/vendor_realme_RMX1921.git
-    branch: master
-    path: vendor/realme/RMX1921
+resources:
+  cpu: 6
+  ram: 12GB
+  disk: 150GB
 
-  - name: android_kernel_realme_sdm710
-    remote: https://github.com/kaderbava/android_kernel_realme_sdm710.git
-    branch: main
-    path: kernel/realme/sdm710
-
-build:
-  lunch_target: infinity_RMX1921-userdebug
-  command: mka bacon
+artifacts:
+  paths:
+    - out/target/product/RMX1921/*.zip
+    - out/target/product/RMX1921/*.img
