@@ -1,0 +1,26 @@
+name: realme_xt_rom
+type: android
+
+sources:
+  - name: manifest
+    remote: https://github.com/ProjectInfinity-X/manifest.git
+    branch: 15
+
+  - name: device_realme_RMX1921
+    remote: https://github.com/kaderbava/device_realme_RMX1921.git
+    branch: 15-matrixx
+    path: device/realme/RMX1921
+
+  - name: vendor_realme_RMX1921
+    remote: https://gitlab.com/kaderbava/vendor_realme_RMX1921.git
+    branch: master
+    path: vendor/realme/RMX1921
+
+  - name: android_kernel_realme_sdm710
+    remote: https://github.com/kaderbava/android_kernel_realme_sdm710.git
+    branch: main
+    path: kernel/realme/sdm710
+
+build:
+  lunch_target: infinity_RMX1921-userdebug
+  command: mka bacon
